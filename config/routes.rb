@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'user/new'
 
   resources :users
+
+  post '/user_save_url' => "users#save_url"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

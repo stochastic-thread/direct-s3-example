@@ -1,4 +1,18 @@
-<%= s3_uploader_form class: "s3-uploader", id: "myS3Uploader" do %>
+<script id="template-upload" type="text/x-tmpl">
+<div id="file-{%=o.unique_id%}" class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+
+
+
+
+<div id="place-image"></div>
+<!-- callback_param: "user[avatar_url]", 
+                     callback_url: user -->
+<%= s3_uploader_form class: "s3-uploader", 
+                     id: "myS3Uploader" do %>
     <%= file_field_tag :file, multiple: false %>
 <% end %>
 
@@ -19,6 +33,8 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <%= f.hidden_field :avatar_url %>
 
   <div class="actions">
     <%= f.submit %>
